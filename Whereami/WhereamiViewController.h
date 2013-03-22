@@ -11,7 +11,9 @@
 
 
 @interface WhereamiViewController : UIViewController
+<CLLocationManagerDelegate>
 {
+    
     CLLocationManager *locationManager;
     
     

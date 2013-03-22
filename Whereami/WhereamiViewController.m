@@ -32,6 +32,11 @@
     return self;
     
 }
+-(void)dealloc
+{
+    //tell the location manager to stop sending messages.
+    [locationManager setDelegate:nil];
+}
 
 -(void)locationManager: (CLLocationManager *)manager
     didUpdateToLocation: (CLLocation *)newLocation
