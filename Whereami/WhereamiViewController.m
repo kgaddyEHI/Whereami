@@ -7,12 +7,41 @@
 //
 
 #import "WhereamiViewController.h"
+#import "WhereamiBNRMapPoint.h"
 
 @interface WhereamiViewController ()
 
 @end
 
 @implementation WhereamiViewController
+
+-(void)findLocation
+{
+    [locationManager startUpdatingLocation];
+    [activityIndicator startAnimating];
+    [locationTitleField setHidden:YES];
+}
+
+-(void)foundLocation:(CLLocation *)loc
+{
+    CLLocationCoordinate2D coord = [loc coordinate];
+    //create an instance of BNRmappoint
+    WhereamiBNRMapPoint *mp = [[WhereamiBNRMapPoint alloc]initWithCoordinate:coord title:[locationTitleField text]];
+    
+    //add to map
+    [worldView addAnnotation:mp];
+    
+    //zoom to this location
+    MKCoordinateRegion region =MKCoordinateRegionMakeWithDistance(coord, 250, 240);
+    [worldView setRegion:region animated:YES];
+    
+    //reset the UI
+    [locationTitleField setText:@""];
+    [activityIndicator stopAnimating];
+    [locationTitleField setHidden:NO];
+    [locationManager stopUpdatingLocation];
+    
+}
 
 -(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,11 +81,28 @@
     [worldView setRegion:region animated:YES];
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //not yet implemented
+    [self findLocation];
+    [textField resignFirstResponder];
+    return YES;
+}
+
 -(void)locationManager: (CLLocationManager *)manager
     didUpdateToLocation: (CLLocation *)newLocation
            fromLocation: (CLLocation *)oldLocation
 {
     NSLog(@"%@", newLocation);
+    
+    //how many seconds ago was this created?
+    NSTimeInterval  t = [[newLocation timestamp] timeIntervalSinceNow];
+    if(t<-180)
+    {
+        //this is cached data, keep looking
+        return;
+    }
+    [self foundLocation:newLocation];
 }
 
 

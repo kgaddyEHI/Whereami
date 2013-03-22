@@ -20,6 +20,7 @@
 		4B186DEC16FBB8BC00449602 /* WhereamiViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B186DEA16FBB8BC00449602 /* WhereamiViewController.xib */; };
 		4B186DF316FBCA2700449602 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B186DF216FBCA2700449602 /* CoreLocation.framework */; };
 		4B186DF516FC9FED00449602 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B186DF416FC9FED00449602 /* MapKit.framework */; };
+		4B186DF816FCDB6D00449602 /* WhereamiBNRMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B186DF716FCDB6D00449602 /* WhereamiBNRMapPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		4B186DEB16FBB8BC00449602 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WhereamiViewController.xib; sourceTree = "<group>"; };
 		4B186DF216FBCA2700449602 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4B186DF416FC9FED00449602 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4B186DF616FCDB6D00449602 /* WhereamiBNRMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhereamiBNRMapPoint.h; sourceTree = "<group>"; };
+		4B186DF716FCDB6D00449602 /* WhereamiBNRMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhereamiBNRMapPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				4B186DDF16FBB8BC00449602 /* WhereamiAppDelegate.m */,
 				4B186DE716FBB8BC00449602 /* WhereamiViewController.h */,
 				4B186DE816FBB8BC00449602 /* WhereamiViewController.m */,
+				4B186DF616FCDB6D00449602 /* WhereamiBNRMapPoint.h */,
+				4B186DF716FCDB6D00449602 /* WhereamiBNRMapPoint.m */,
 				4B186DEA16FBB8BC00449602 /* WhereamiViewController.xib */,
 				4B186DD616FBB8BC00449602 /* Supporting Files */,
 			);
@@ -185,6 +190,7 @@
 				4B186DDC16FBB8BC00449602 /* main.m in Sources */,
 				4B186DE016FBB8BC00449602 /* WhereamiAppDelegate.m in Sources */,
 				4B186DE916FBB8BC00449602 /* WhereamiViewController.m in Sources */,
+				4B186DF816FCDB6D00449602 /* WhereamiBNRMapPoint.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +313,7 @@
 				4B186DF116FBB8BC00449602 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
