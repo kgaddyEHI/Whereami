@@ -26,7 +26,7 @@
         //we want it to be very accurate
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];
         //start looking imedatly
-        [locationManager startUpdatingLocation];
+        //[locationManager startUpdatingLocation];
         
     }
     return self;
@@ -36,6 +36,20 @@
 {
     //tell the location manager to stop sending messages.
     [locationManager setDelegate:nil];
+}
+
+-(void)viewDidLoad
+{
+    [worldView setShowsUserLocation:YES];
+}
+
+
+- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
+{
+    //we need to zoom here.
+    CLLocationCoordinate2D loc = [userLocation coordinate];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(loc, 250, 250);
+    [worldView setRegion:region animated:YES];
 }
 
 -(void)locationManager: (CLLocationManager *)manager
